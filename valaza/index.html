@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? ❤️</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffdeeb;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 20px;
+            animation: float 5s linear infinite;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        #container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            z-index: 10;
+            max-width: 500px;
+            width: 90%;
+            transition: all 0.3s ease;
+        }
+
+        .main-media {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 5px solid #ff4d6d;
+        }
+
+        h1 { color: #d63384; font-size: 24px; }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            min-height: 80px;
+        }
+
+        button {
+            padding: 15px 35px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+            z-index: 12;
+            animation: heartbeat 1.2s infinite;
+        }
+
+        #noBtn {
+            background-color: #adb5bd;
+            color: white;
+            position: relative;
+            z-index: 11;
+            transition: transform 0.2s ease;
+        }
+
+        .gif-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .gif-grid img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="vibeMusic"><source src="athi.mp3" type="audio/mpeg"></audio>
+
+    <div id="heart-container"></div>
+
+    <div id="container">
+        <div id="media-holder">
+            <video class="main-media" id="displayVideo" autoplay loop muted playsinline>
+                <source src="WhatsApp Video 2026-01-28 at 16.58.22.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+       
+
+        <div class="buttons">
+            <button id="yesBtn" onclick="celebrate()">Yes</button>
+            <button id="noBtn" onmouseover="moveAndAngry()">No</button>
+        </div>
+    </div>
+
+    <script>
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            document.getElementById('heart-container').appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }, 300);
+
+    
+        const reactionVideos = ["we got a problem.mp4", "angry.mp4"];
+        let reactionIdx = 0;
+
+        function moveAndAngry() {
+            const noBtn = document.getElementById('noBtn');
+            const videoEl = document.getElementById('displayVideo');
+            const headline = document.getElementById('headline');
+
+            
+            const moveX = (Math.random() - 0.5) * 100;
+            const moveY = (Math.random() - 0.5) * 100;
+            noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
+
+            
+            reactionIdx = (reactionIdx + 1) % reactionVideos.length; 
+            const nextVideo = reactionVideos[reactionIdx];
+            
+            videoEl.pause();
+            videoEl.src = nextVideo;
+            videoEl.load(); // Forces the browser to look at the new file
+            videoEl.play();
+            
+            headline.innerText = "EXCUSE ME?? 😡";
+            headline.style.color = "red";
+
+            // 3. Make the Yes button grow
+            const yesBtn = document.getElementById('yesBtn');
+            yesBtn.style.animation = 'none'; 
+            const currentScale = yesBtn.style.transform ? parseFloat(yesBtn.style.transform.replace('scale(', '')) : 1;
+            yesBtn.style.transform = `scale(${currentScale + 0.15})`;
+        }
+
+        function celebrate() {
+            const audio = document.getElementById('vibeMusic');
+            audio.currentTime = 53;
+            audio.play().catch(e => console.log("Audio play blocked"));
+
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+
+            const container = document.getElementById('container');
+            container.innerHTML = `
+                <h1 style="font-size: 30px;">I KNEW IT! 🥰 Best Valentine Ever!</h1>
+                <div class="gif-grid">
+                    <img src="Screenshot 2026-01-29 204923.png">
+                    <img src="WhatsApp Image 2026-01-29 at 19.33.23.jpeg">
+                    <img src="WhatsApp Image 2026-01-29 at 19.33.24.jpeg">
+                    <img src="WhatsApp Image 2026-01-29 at 19.33.24 (1).jpeg">
+                </div>
+                <h2 style="color:#d63384; margin-top:20px;">I love you so much! ❤️</h2>
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+    "source": "Python-SecOps-Automation",
+    "scan_timestamp": "2026-04-07 17:53:15",
+    "target_system": "127.0.0.1",
+    "status": "up",
+    "vulnerabilities": [
+        {
+            "port": 21,
+            "service": "ftp",
+            "state": "closed",
+            "description": "Service ftp is active on port 21"
+        },
+        {
+            "port": 22,
+            "service": "ssh",
+            "state": "closed",
+            "description": "Service ssh is active on port 22"
+        },
+        {
+            "port": 80,
+            "service": "http",
+            "state": "closed",
+            "description": "Service http is active on port 80"
+        },
+        {
+            "port": 443,
+            "service": "https",
+            "state": "closed",
+            "description": "Service https is active on port 443"
+        }
+    ]
+}

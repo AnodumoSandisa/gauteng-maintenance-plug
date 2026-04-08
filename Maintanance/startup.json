@@ -1,0 +1,47 @@
+[
+{
+  "id": 1,
+  "name": "Sandton Luxe Nails",
+  "category": "Nail Tech",
+  "city": "Johannesburg",
+  "area": "Sandton",
+  "price": 450,
+  "rating": 4.6,
+  "portfolio": ["images/nails.jpg", "images/nail2.jpg" , "images/nails3.jpg"],
+  "slots": ["09:00", "11:00", "14:00", "16:00"]
+},
+  {
+    "id": 2,
+    "name": "Hatfield Braiding Studio",
+    "category": "Braider",
+    "city": "Pretoria",
+    "area": "Hatfield",
+    "price": 750,
+    "rating": 4.7,
+    "portfolio": ["images/braids.jpg", "images/braids2.jpg", "images/braids3.jpg"],
+  "slots": ["09:00", "11:00", "14:00", "16:00"]
+  },
+  {
+    "id": 3,
+    "name": "Soweto Glow Up",
+    "category": "Lash Tech",
+    "city": "Johannesburg",
+    "area": "Soweto",
+    "price": 300,
+    "rating": 4.8,
+    "portfolio": ["images/lash.jpg", "images/lash2.jpg", "images/lash3.jpg"],
+  "slots": ["09:00", "11:00", "14:00", "16:00"]
+  },
+  {
+    "id": 4,
+    "name": "Centurion Lash & Brow",
+    "category": "Lash Tech",
+    "city": "Ekurhuleni",
+    "area": "Centurion",
+    "price": 550,
+    "rating": 4.6,
+    "portfolio": ["images/brow1.jpg", "images/brow2.jpg", "images/brow3.jpg"],
+  "slots": ["09:00", "11:00", "14:00", "16:00"]
+
+  }
+]

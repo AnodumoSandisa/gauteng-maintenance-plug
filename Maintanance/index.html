@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Maintenance Plug | Gauteng</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section style="background-color: steelblue; background-image: url('images/pluggs.png'); width: 100%; height: 200px; background-size: cover;">
+    <header>
+      
+    </header>
+    </section>
+<br>
+<br>
+
+    <section class="filters">
+        <select id="categoryFilter">
+            <option value="all">All Services</option>
+            <option value="Nail Tech">Nail Tech</option>
+            <option value="Braider">Braiders</option>
+            <option value="Lash Tech">Lash Tech</option>
+        </select>
+
+        <select id="locationFilter">
+            <option value="all">All of Gauteng</option>
+            <option value="Johannesburg">Johannesburg</option>
+            <option value="Pretoria">Pretoria</option>
+            <option value="Ekurhuleni">Ekurhuleni</option>
+        </select>
+
+        <button onclick="applyFilters()">Search Nearby</button>
+    </section>
+    <br>
+<br>
+<br>
+
+    <main id="startupGrid" class="grid">
+        </main>
+
+        <div id="portfolioModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="portfolioDetails">
+            </div>
+    </div>
+</div>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+       (function(){
+      
+          emailjs.init("uc-pc8AwOBcYufxLR"); 
+       })();
+    </script>
+
+    <script src="app.js"></script>
+</body>
+</html>
+</body>
+</html>

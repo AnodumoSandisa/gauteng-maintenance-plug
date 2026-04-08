@@ -1,43 +1,49 @@
-# SecOps: Automated Incident Data Ingestion
+📍 Gauteng Maintenance Plug
+A localized service-discovery and booking application designed to connect users with service providers across Gauteng. This project implements a dynamic service catalog, asynchronous data handling, and automated transaction notifications.
 
-### 🚀 Overview
-This project bridges the gap between **Network Security Reconnaissance** and **IT Service Management (ITSM)**. It automates the process of scanning a network environment and transforming raw security data into a **ServiceNow-ready JSON payload**.
 
-### 💼 The Business Use Case
-Manual entry of security threats into an ITSM platform is slow and prone to human error. This utility simulates a **MID Server** workflow by:
-1.  Identifying active services on a network using Nmap.
-2.  Formatting technical data into a structured JSON object.
-3.  Preparing that data for ingestion via a **ServiceNow Scripted REST API**.
 
-### 🛠️ Technical Stack
-- **Language:** Python 3.13
-- **Engine:** Nmap 7.99 (Network Mapping)
-- **Library:** `python-nmap`
-- **Data Format:** JSON (JavaScript Object Notation)
+🛠️ Technical Stack
+Frontend: HTML5, CSS3 (Modern Grid & Flexbox)
 
-### 📂 How to Run
-1.  **Install Nmap Engine:** Download and install from [nmap.org](https://nmap.org/).
-2.  **Install Requirements:** ```bash
-    pip install python-nmap
-    ```
-3.  **Execute Scan:**
-    ```bash
-    python scanner_to_json.py
-    ```
+Logic: Vanilla JavaScript (ES6+)
 
-### 📜 Sample JSON Payload
-This is the structured data ready for ServiceNow incident creation:
-```json
-{
-    "source": "Python-SecOps-Automation",
-    "scan_timestamp": "2026-04-07 18:30:45",
-    "target_system": "127.0.0.1",
-    "vulnerabilities": [
-        {
-            "port": 443,
-            "service": "https",
-            "state": "open",
-            "description": "Service https is active on port 443"
-        }
-    ]
-}
+Data Management: JSON-based local database for provider metadata.
+
+Integrations: EmailJS API for automated booking confirmations and lead generation.
+
+🔑 Core Features
+Dynamic Filtering Engine: Real-time search functionality that filters by service category (Nail Tech, Braider, Lash Tech) and location (Johannesburg, Pretoria, Ekurhuleni).
+
+Asynchronous Content Rendering: Fetches data from a JSON source and dynamically generates UI components, minimizing initial page load.
+
+Portfolio Modal System: A modular view system that displays provider-specific portfolios, pricing, and availability based on unique IDs.
+
+Appointment Scheduling: Interactive time-slot selection with integrated client-side validation for booking requests.
+
+Automated Email Workflow: Direct integration with an SMTP-based API to send instant confirmations to users upon successful booking.
+
+🏗️ Project Architecture
+The application follows a clean separation of concerns:
+
+Data Layer (startup.json): Stores provider details, image links, and available time slots.
+
+Logic Layer (app.js): Manages state, filtering logic, modal toggling, and API communication.
+
+Presentation Layer (index.html & style.css): Handles the semantic structure and the "Dark Mode" aesthetic, optimized for high-contrast visibility.
+
+⚙️ Installation & Setup
+Clone the repository:
+
+Bash
+git clone https://github.com/AnodumoSandisa/gauteng-maintenance-plug.git
+Open the project:
+Navigate to the project folder and open index.html using a local web server (e.g., VS Code Live Server extension) to avoid CORS policy restrictions on the fetch() API.
+
+Configuration:
+To enable the email feature, initialize your own Public Key and Template IDs in the index.html and app.js files.
+
+🛡️ Security Considerations
+Credential Handling: Public keys for third-party services are initialized at runtime, keeping the communication secure between the client and the API gateway.
+
+Input Validation: The booking form requires a valid email format and an active slot selection before processing the transaction request.

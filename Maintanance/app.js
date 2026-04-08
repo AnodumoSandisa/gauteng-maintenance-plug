@@ -1,8 +1,8 @@
-// Global variable to keep track of the chosen slot
+
 let selectedSlot = "";
 
 async function applyFilters() {
-    // ⚠️ MANUALLY CHECK: Ensure your file is named 'startup.json' in your folder
+   
     const response = await fetch('startup.json');
     const data = await response.json();
 
@@ -34,7 +34,7 @@ async function viewPortfolio(id) {
     const response = await fetch('./startup.json');
     const data = await response.json();
     
-    // Use == to handle potential string/number mismatches from HTML
+   
     const startup = data.find(s => s.id == id);
 
     if (!startup) return;
@@ -65,7 +65,7 @@ async function viewPortfolio(id) {
     document.getElementById('portfolioModal').style.display = "block";
 }
 
-// Logic to select a slot visually
+
 function selectSlot(button, slot) {
     selectedSlot = slot;
     // Reset all buttons to default style
@@ -78,7 +78,6 @@ function selectSlot(button, slot) {
     button.style.color = "black";
 }
 
-// 📧 THE EMAILJS FUNCTION
 function sendBooking(businessName) {
     const userEmail = document.getElementById('userEmail').value;
 
@@ -97,7 +96,6 @@ function sendBooking(businessName) {
         selected_slot: selectedSlot
     };
 
-    // ⚠️ MANUALLY ADD: Replace with your actual IDs from EmailJS Dashboard
     const SERVICE_ID = "service_v2sybp3"; 
     const TEMPLATE_ID = "template_fnj1a5p";
 
